@@ -7,27 +7,30 @@
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.css" />
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
 	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.js"></script>
+  <link rel="stylesheet" href="tartans/tartans.css" />
 </head> 
 <body> 
 
 <div data-role="page">
 
 	<div data-role="header">
-		<h1>The Tartanator</h1>
+	  <a href="index.html" rel="prev" data-icon="back" />Back</a>
+		<h1>Favorite Tartans</h1>
 	</div><!-- /header -->
 
 	<div data-role="content">	
-    <p>The Tartanator is a community-built association of groups, businesses and individuals bent on keeping the Scottish heritage alive overseas by promoting the understanding and enjoyment of <strong>tartans</strong>.</p>
-  
-    <ul>
-      <li>About Us</li>
-      <li>Find an Event</li>
-      <li>Popular Tartans</li>
+    <ul data-role="listview">
+      <?php foreach($tartan_list as $name => $info): ?>
+        <li><a href="<?php print $info['link']; ?>">
+          <img src="<?php print $info['icon']; ?>" alt="<?php print $name; ?>" />
+          <h3><?php print $name; ?></h3>
+        </a></li>
+      <?php endforeach; ?>
     </ul>
 	</div><!-- /content -->
 
 	<div data-role="footer">
-		<h4>Bring forrit the tartan!</h4>
+		<h6>Bring forrit the tartan!</h6>
 	</div><!-- /footer -->
 </div><!-- /page -->
 
