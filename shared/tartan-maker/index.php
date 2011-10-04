@@ -79,8 +79,7 @@
         <input type="range" name="size1" min="2" max="72" value="2" id="size1" />
       </div>
       <div data-role="fieldcontain">
-        <div class="ui-grid-c">
-          <div class="ui-block-a">
+
             <input type="radio" name="color1" id="color1-option-1" value="#000000" />
             <label for="color1-option-1" id="color1-option-1-label" >Black</label>
             <input type="radio" name="color1" id="color1-option-2" value="#ff3344" />
@@ -93,8 +92,7 @@
             <label for="color1-option-5" id="color1-option-5-label" >Lt. Tan</label>
             <input type="radio" name="color1" id="color1-option-6" value="#ffec00"  />
             <label for="color1-option-6" id="color1-option-6-label" >Yellow</label>
-          </div>
-          <div class="ui-block-b">
+
             <input type="radio" name="color1" id="color1-option-7" value="#ffffff" />
             <label for="color1-option-7" id="color1-option-7-label" >White</label>
             <input type="radio" name="color1" id="color1-option-8" value="#cc0000" />
@@ -108,8 +106,6 @@
             <input type="radio" name="color1" id="color1-option-12" value="#65295f"  />
             <label for="color1-option-12" id="color1-option-12-label" >Purple</label>
 
-          </div>
-          <div class="ui-block-c">
             <input type="radio" name="color1" id="color1-option-13" value="#cccccc" />
             <label for="color1-option-13" id="color1-option-13-label" >Grey</label>
             <input type="radio" name="color1" id="color1-option-14" value="#660000" />
@@ -122,16 +118,15 @@
             <label for="color1-option-17" id="color1-option-17-label" >Brown</label>
             <input type="radio" name="color1" id="color1-option-18" value="#FF8C00"  />
             <label for="color1-option-18" id="color1-option-18-label" >Orange</label>
-          </div>
-          <div class="ui-block-d">
+
           <input type="radio" name="color1" id="color1-option-19" value="#5b6333" />
             <label for="color1-option-19" id="color1-option-19-label" >Olive</label>
             <input type="radio" name="color1" id="color1-option-20" value="#29292b" />
             <label for="color1-option-20" id="color1-option-20-label" >V.Dk. Blue</label>
             <input type="radio" name="color1" id="color1-option-21" value="#3c516c" />
             <label for="color1-option-21" id="color1-option-21-label" >Dk. Slate</label>
-          </div>
-      </div>
+
+
     </div>
     <div data-role="fieldcontain">
       <input type="button" data-role="button" name="addcolor" id="addcolor" value="Add This Color" data-icon="plus" />
