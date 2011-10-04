@@ -1,4 +1,4 @@
-Chapter 6, Step 1, Part III
+Chapter 6, Step 1, Part IV
 ===========================
 ## Format the List
 
