@@ -18,10 +18,12 @@ $tartan->set_stripe_size($stripe);
 
 $xml = $tartan->to_xml();
 
-if ($_POST['redirect_to_image'] == "true") {
-  header('Location:  /image.php?name=' . $_POST['name'] . '&width=320');
-  exit();
-} else {
-  print json_encode(array('name' => $tartan->get_nicename()));
+// Support jQuery Mobile automatic ajax "caching"
+if (empty($name)) {
+  $name = $_GET['name'];
 }
-?>
+
+$redirect_path = ($_POST['redirect_to_image'] == "true") ? 'image.php' : 'post_create.php';
+header('Location:  /' . $redirect_path . '?name=' . $name . '&width=320');
+exit();
+
