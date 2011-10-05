@@ -13,9 +13,9 @@
 
 <div data-role="page">
 
-	<div data-role="header">
-	  <a href="index.html" rel="prev" data-icon="back" />Back</a>
-		<h1>Favorite Tartans</h1>
+	<div data-role="header" data-position="fixed">
+	  <a href="index.html" rel="prev" data-direction="reverse" data-icon="back" />Back</a>
+		<h1>Popular Tartans</h1>
 	</div><!-- /header -->
 
 	<div data-role="content">	
@@ -31,9 +31,8 @@
       <?php endforeach; ?>
     </ul>
 	</div><!-- /content -->
-
-	<div data-role="footer">
-		<h6>Bring forrit the tartan!</h6>
+	<div data-role="footer" data-position="fixed" data-theme="c">
+		Bring forrit the tartan!
 	</div><!-- /footer -->
 </div><!-- /page -->
 

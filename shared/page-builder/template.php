@@ -13,17 +13,16 @@
 
 <div data-role="page" id="<?php print $tartan->get_nicename(); ?>">
 
-	<div data-role="header">
-    <a href="../tartans.html" rel="prev" data-icon="back" />Back</a>
+	<div data-role="header" data-position="fixed">
+    <a href="../tartans.html" rel="prev" data-direction="reverse" data-icon="back" />Back</a>
 		<h1><?php print $tartan->name; ?></h1>
 	</div><!-- /header -->
 
 	<div data-role="content">
     
 	</div><!-- /content -->
-
-	<div data-role="footer" data-position="fixed">
-		<h4>Bring forrit the tartan!</h4>
+	<div data-role="footer" data-position="fixed" data-theme="c">
+		Bring forrit the tartan!
 	</div><!-- /footer -->
 </div><!-- /page -->
 
