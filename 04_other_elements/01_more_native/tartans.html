@@ -14,8 +14,8 @@
 <div data-role="page">
 
 	<div data-role="header" data-position="fixed">
-	  <a href="index.html" rel="prev" data-direction="reverse" data-icon="back" />Back</a>
 		<h1>Popular Tartans</h1>
+    <a href="index.html" data-icon="home" class="ui-btn-right">Home</a> 
 	</div><!-- /header -->
 
 	<div data-role="content">	
@@ -196,8 +196,14 @@
       </a></li>
           </ul>
 	</div><!-- /content -->
-	<div data-role="footer" data-position="fixed" data-theme="c">
-		Bring forrit the tartan!
+	<div data-role="footer" data-position="fixed" data-id="footer-navbar">
+		<div data-role="navbar"> 
+			<ul> 
+				<li><a href="aboutus.html" data-icon="info">About</a></li> 
+				<li><a href="findevent.html" data-icon="star">Events</a></li> 
+				<li><a href="tartans.html" data-icon="grid" class="ui-btn-active ui-state-persist">Tartans</a></li> 
+			</ul> 
+		</div><!-- /navbar --> 
 	</div><!-- /footer -->
 </div><!-- /page -->
 

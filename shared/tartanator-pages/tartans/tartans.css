@@ -1,4 +1,4 @@
-[data-role="footer"] { text-align: center; padding: 5px 0;}#abercrombie { background-image:url('icons/abercrombie.png'); }
+#abercrombie { background-image:url('icons/abercrombie.png'); }
 #arbuthnot { background-image:url('icons/arbuthnot.png'); }
 #baird { background-image:url('icons/baird.png'); }
 #barclay-dress { background-image:url('icons/barclay-dress.png'); }
@@ -25,6 +25,9 @@
 #elliot { background-image:url('icons/elliot.png'); }
 #erskine { background-image:url('icons/erskine.png'); }
 #fletcher { background-image:url('icons/fletcher.png'); }
+#floral-feeling { background-image:url('icons/floral-feeling.png'); }
+#floral { background-image:url('icons/floral.png'); }
+#foo { background-image:url('icons/foo.png'); }
 #forbes { background-image:url('icons/forbes.png'); }
 #forsyth { background-image:url('icons/forsyth.png'); }
 #fraser { background-image:url('icons/fraser.png'); }

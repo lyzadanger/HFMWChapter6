@@ -24,7 +24,7 @@ if (empty($name)) {
   $name = $_GET['name'];
 }
 
-$redirect_path = ($_POST['redirect_to_image'] == "true") ? 'image.php' : 'post_create.php';
-header('Location:  /' . $redirect_path . '?name=' . $name . '&width=' . $width);
+$redirect_path = ($_POST['redirect_to_image'] === "true") ? 'image.php' : 'post_create.php';
+header('Location:' . $redirect_path . '?name=' . $name . '&width=' . $width);
 exit();
 

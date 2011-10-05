@@ -14,12 +14,11 @@
   <div data-role="page" data-add-back-btn="true" data-back-btn-text="Create">
 
     <div data-role="header">
-      <h1>Your Tartan</h1>
+      <h2><?php echo $_GET['name'] ?></h2>
     </div><!-- /header -->
 
     <div data-role="content">  
-      <h2><?php echo $_GET['name'] ?></h2>
-      <img src="/image.php?name=<?php echo $_GET['name'] ?>&amp;width=<?php echo $_GET['width'] ?>">
+      <img src="image.php?name=<?php echo $_GET['name'] ?>&amp;width=<?php echo $_GET['width'] ?>">
     </div><!-- /content -->
 
   </div><!-- /page -->

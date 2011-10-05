@@ -1,0 +1,29 @@
+
+#colorlist li {
+  background-image: -webkit-linear-gradient(90deg,rgba(0,0,0,.3),  transparent);
+  cursor: pointer;
+  padding-bottom: 0.7em;
+  padding-top: 0.7em;
+  padding-left: 30px;
+  text-shadow: none;
+}
+#colorlist li a {
+  position: absolute;
+}
+#colorlist li .ui-li {
+  border-top: 0;
+}
+#add-color-container {
+  display: none;
+}
+.placeholder {
+  color: #999;
+}
+.ui-field-contain {
+  border: none;
+  padding: 0.5em;
+}
+select {
+  /* prevent iOS zoom problem */
+  font-size: 1em;
+}

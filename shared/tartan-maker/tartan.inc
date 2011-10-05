@@ -196,7 +196,7 @@ class LyzaTartan {
     if ($save) {
       // Why yes, as written, this WOULD overwrite another tartan with 
       // the same name. 
-      $save_to = ($save_to) ? $save_to : TARTAN_IMAGE_DIR . $this->sanitize($this->name, TRUE) . '-' . $this->width . '.png';
+      $save_to = ($save_to) ? $save_to : TARTAN_IMAGE_DIR . self::sanitize($this->name, TRUE) . '-' . $this->width . '.png';
       imagepng($im, $save_to);
       imagedestroy($im);
       if ($display) {
@@ -242,7 +242,7 @@ class LyzaTartan {
     return $rgbArray;
   }
 
-  private function sanitize($string = '', $is_filename = FALSE) {
+  public static function sanitize($string = '', $is_filename = FALSE) {
     $string = preg_replace('/[^\w\-'. ($is_filename ? '~_\.' : ''). ']+/u', '-', $string);
     return mb_strtolower(preg_replace('/--+/u', '-', $string), 'UTF-8');
   }
