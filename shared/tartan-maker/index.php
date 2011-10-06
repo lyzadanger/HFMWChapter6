@@ -20,7 +20,7 @@
 
   <div data-role="content">  
     <form method="post" action="generate.php" id="tartanator_form">
-      <ul data-role="listview" data-theme="d">
+      <ul data-role="listview" data-theme="c">
       <li data-role="list-divider">Tell us about your tartan</li>
       <li data-role="fieldcontain">
         <label for="tartan_name">Tartan Name</label>
