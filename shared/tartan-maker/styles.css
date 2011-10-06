@@ -1,5 +1,4 @@
 #colorlist li {
-  background-image: -webkit-linear-gradient(90deg,rgba(0,0,0,.3),  transparent);
   cursor: pointer;
   padding-bottom: 0.7em;
   padding-top: 0.7em;
