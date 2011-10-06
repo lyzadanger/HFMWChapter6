@@ -16,6 +16,10 @@ for($i=0; $i < sizeof($_POST['colors']); $i++) {
 $tartan = new LyzaTartan($name, $sett, 1);
 $tartan->set_dynamic_scale($width);
 $tartan->set_stripe_size($stripe);
+if (isset($_POST['tartan_info'])) {
+  // NOTE! This isn't sanitized!
+  $tartan->set_description(strip_tags(stripslashes($_POST['tartan_info']), '<a><p><strong><em><br><ul><li><ol><h1><h2><h3><h4><h5><h6>'));
+}
 
 $xml = $tartan->to_xml();
 

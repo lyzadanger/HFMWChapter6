@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<tartan name="Test Balmoral" stripe="2" scale="1">
+  <description>Indecently &lt;strong&gt;walking&lt;/strong&gt; along the emphasized &lt;em&gt;continent&lt;/em&gt;, I ran into something odd.&lt;br /&gt;&lt;br /&gt;This is strange, thought I.</description>
+  <stitches>
+    <stitch color="#ffffff" count="2"/>
+    <stitch color="#cccccc" count="2"/>
+    <stitch color="#666666" count="2"/>
+    <stitch color="#000000" count="2"/>
+  </stitches>
+</tartan>

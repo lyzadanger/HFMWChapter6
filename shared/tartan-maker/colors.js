@@ -20,14 +20,15 @@
     $colorList     = $('#colorlist');
     $submitFormBtn = $('#buildtartan').parents('.ui-btn');
     $sizeInputUI   = $('.size-input');
+    $sizeSlider    = $sizeInputUI.find('input');
     $colorInputUI  = $('.color-input');
     $nameInput     = $('#tartan_name');
 
-    $submitFormBtn.add('label').hide();
+    $submitFormBtn.add('.color-input label').hide();
     $colorList.click(onColorListChange);
     setColorSelectStyle();
-
-    $colorInputUI.change(setColorSelectStyle);
+    $sizeSlider.change(onStitchSizeChange);
+    $colorInputUI.change(changeColorSelect);
     $('#tartanator_form').submit(onFormSubmit);
   }
 
@@ -43,7 +44,11 @@
       addColor(name, size, hex);
       onColorListChange();
     } else {
-      alert('Please select a size and color.');
+     $.mobile.changePage( "dialogs/size-color-required.html", {
+	     transition: "pop",
+	     reverse: false,
+	     role: 'dialog'
+      });	
     }
     return false;
   };
@@ -60,7 +65,7 @@
       '</li>'].join('');
     $colorList.append(colorItem);
     $colorInputUI.find('select').val('').selectmenu('refresh');
-    $sizeInputUI.find('input').val('2').slider('refresh');
+    $sizeInputUI.find('input').slider('refresh');
     onColorListChange();
   };
 
@@ -75,11 +80,22 @@
     $colorList.listview('refresh'); 
     setColorSelectStyle();
   };
+  
+  function onStitchSizeChange(changeEvent) {
+    var current_val = parseInt($sizeSlider.val(), 10);
+    if (current_val % 2 == 1) {
+      $sizeSlider.val(current_val + 1);
+    }
+  }
 
   function onFormSubmit () {
     var url;
     if (!$nameInput.val() || !$colorList.find('li').length) {
-      alert('Please name your tartan & add some colors.');
+     $.mobile.changePage( "dialogs/tartan-data-required.html", {
+	     transition: "pop",
+	     reverse: false,
+	     role: 'dialog'
+      });	
       return false;
     }
     url = $(this).attr('action');
@@ -89,6 +105,11 @@
     $('[name=redirect_to_image]').val('false');
     return true;
   };
+  
+  function changeColorSelect() {
+    setColorSelectStyle();
+    $sizeSlider.select().focus();
+  }
 
   // Set the background color of the select widget to match the color value
   function setColorSelectStyle () {
@@ -97,7 +118,7 @@
       'background': backgroundHex || '',
       'color'     : isDarkColor(backgroundHex) ? '#fff' : '#000'
     });
-    $sizeInputUI.first().find('input').focus().select();
+
   };
 
   // Given a hex value, do a dirty calculation to indicate whether 

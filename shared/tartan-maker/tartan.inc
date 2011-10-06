@@ -11,6 +11,8 @@ class LyzaTartan {
   private $width;
   private $height;
   
+  private $description;
+  
   private $warp;
   private $weft;
   private $weave;
@@ -91,6 +93,12 @@ class LyzaTartan {
     $factor = $target_width / $this->width;
     $this->pattern_scale = $factor;
     $this->ready = false;
+  }
+  public function set_description($description) {
+    $this->description = $description;
+  }
+  public function get_description() {
+    return $this->description;
   }
   
   /**
@@ -257,6 +265,9 @@ class LyzaTartan {
     $tartan->addAttribute('name', $this->name);
     $tartan->addAttribute('stripe', $this->stripe);
     $tartan->addAttribute('scale', 1);
+    if ($this->get_description()) {
+      $tartan->addChild('description', $this->get_description());
+    }
     $stitches = $tartan->addChild('stitches');
     foreach ($this->sett as $settlet) {
       $stitch = $stitches->addChild('stitch');
@@ -264,10 +275,19 @@ class LyzaTartan {
       $stitch->addAttribute('count', $settlet['count']);
     }
     $tartan_xml = $tartan->asXML();
+    // Use a DOMDocument to format the XML so it isn't all one line
+    $dom = new DOMDocument('1.0');
+    $dom->preserveWhiteSpace = false;
+    $dom->formatOutput = true; 
+    $dom->loadXML($tartan_xml);
+
     if ($to_file) {
+      if (!$this->name) {
+        return false;
+      }
       $fp = fopen(TARTAN_XML_DIR . $this->sanitize($this->name, TRUE) . '.xml', 'w');
       if ($fp) {
-        fwrite($fp, $tartan_xml);
+        fwrite($fp, $dom->saveXML());
         fclose($fp);
       }
     }
