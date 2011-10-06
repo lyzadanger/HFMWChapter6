@@ -132,12 +132,16 @@
     return (sum / 3) < 128;
   };
 
-  // Despite the docs (http://jquerymobile.com/test/docs/api/events.html), 
-  // jQuery Mobile doesn't trigger pageinit when the DOM loads
-  // and pagecreate is triggered too early (DOM elements not ready)
-  // Until that's fixed, we'll manually fire pageinit on DOM ready
   $(function () {
+    // Despite the docs (http://jquerymobile.com/test/docs/api/events.html), 
+    // jQuery Mobile doesn't trigger pageinit when the DOM loads
+    // and pagecreate is triggered too early (DOM elements not ready)
+    // Until that's fixed, we'll manually fire pageinit on DOM ready
     $('[data-role="page"]').trigger('pageinit');
+
+    // Hack! Work around the iOS "zoom" bug 
+    // by ensuring that the select text size is so big, mobile safari will never want to zoom
+    if ((/iPhone|iPad/).test(navigator.userAgent)) $('select').css('fontSize', '45px');
   });
 
 
