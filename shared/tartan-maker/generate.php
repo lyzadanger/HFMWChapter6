@@ -28,7 +28,7 @@ if (empty($name)) {
   $name = $_GET['name'];
 }
 
-$redirect_path = ($_POST['redirect_to_image'] === "true") ? 'image.php' : 'post_create.php';
+$redirect_path = ($_POST['redirect_to_image'] === "true") ? 'image.php' : 'new_tartan.php';
 header('Location:' . $redirect_path . '?name=' . $name . '&width=' . $width);
 exit();
 

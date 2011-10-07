@@ -14,7 +14,7 @@
 <div data-role="page" id="<?php print $tartan->get_nicename(); ?>">
 
 	<div data-role="header" data-position="fixed">
-    <a href="../tartans.html" rel="prev" data-direction="reverse" data-icon="back" />Back</a>
+    <a href="../tartans.html" data-rel="back" data-direction="reverse" data-icon="back" />Back</a>
 		<h1><?php print $tartan->name; ?></h1>
 	</div><!-- /header -->
 

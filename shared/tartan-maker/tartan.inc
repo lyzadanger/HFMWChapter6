@@ -116,7 +116,7 @@ class LyzaTartan {
     }
     for($i = sizeof($this->sett) - 1; $i >= 0; $i--) { // Back
       // Pivots would matter HERE
-      if ($i == sizeof($this->sett)) {
+      if ($i == sizeof($this->sett) - 1) {
         continue;
       }
       else if ($i == 0) {
@@ -256,7 +256,11 @@ class LyzaTartan {
   }
   
   public function get_nicename() {
-    return $this->sanitize($this->name, TRUE);
+    return self::sanitize($this->name, TRUE);
+  }
+  
+  public function get_filename() {
+    return TARTAN_XML_DIR . self::sanitize($this->name) . '.xml';
   }
 
   public function to_xml($to_file=TRUE) {
@@ -285,7 +289,7 @@ class LyzaTartan {
       if (!$this->name) {
         return false;
       }
-      $fp = fopen(TARTAN_XML_DIR . $this->sanitize($this->name, TRUE) . '.xml', 'w');
+      $fp = fopen(TARTAN_XML_DIR . self::sanitize($this->name, TRUE) . '.xml', 'w');
       if ($fp) {
         fwrite($fp, $dom->saveXML());
         fclose($fp);

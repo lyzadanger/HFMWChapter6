@@ -4,14 +4,15 @@
   <title>The Tartanator</title> 
   
   <meta name="viewport" content="width=device-width, initial-scale=1"> 
-  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.css" />
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0rc1/jquery.mobile-1.0rc1.min.css" />
   <link rel="stylesheet" href="styles.css" />
-  <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
-  <script type="text/javascript" src="http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.js"></script>
+  <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.0rc1/jquery.mobile-1.0rc1.min.js"></script>
+  <script type="text/javascript" language="JavaScript" src="tartanator.js"></script>
 </head> 
 <body> 
 
-<div data-role="page">
+<div data-role="page" id="tartan-maker">
 
   <div data-role="header">
     <h1>Tartan Builder</h1>
@@ -40,7 +41,9 @@
             <option value="#000000">Black</option>
             <option value="#ffffff">White</option>
             <option value="#cccccc">Light Grey</option>
+            <option value="#999999">Mid Grey</option>
             <option value="#666666">Dark Grey</option>
+            <option value="#333333">Very Dark Grey</option>
             <option value="#cc0000">Red</option>
             <option value="#660000">Dark Red</option>
             <option value="#FFB6C1">Light Rose</option>
@@ -51,11 +54,13 @@
             <option value="#9ACD32">Yellow Green</option>
             <option value="#5b6333">Olive</option>
             <option value="#00cc00">Light Green</option>
+            <option value="#546c18">Field Green</option>
             <option value="#8FBC8F">Light Grey Green</option>
             <option value="#008000">Green</option>
             <option value="#126846">Blue Green</option>
             <option value="#B0E0E6">Light Blue</option>
             <option value="#274086">Blue</option>
+            <option value="#56565e">Storm Blue Grey</option>
             <option value="#3c516c">Dark Slate Blue</option>
             <option value="#001144">Dark Blue</option>
             <option value="#29292b">Very Dark Blue</option>
@@ -64,6 +69,7 @@
             <option value="#65295f">Purple</option>
             <option value="#cc9966">Light Tan</option>
             <option value="#996600">Tan</option>
+            <option value="#615024">Welsh Earth</option>
             <option value="#663300">Brown</option>
           </select>
         </li>
@@ -97,6 +103,5 @@
 
 </div><!-- /page -->
 
-<script type="text/javascript" language="JavaScript" src="colors.js"></script>
 </body>
 </html>

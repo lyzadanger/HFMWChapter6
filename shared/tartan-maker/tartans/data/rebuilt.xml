@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<tartan name="Rebuilt" stripe="2" scale="1">
-  <stitches>
-    <stitch color="#cccccc" count="2"/>
-    <stitch color="#666666" count="2"/>
-    <stitch color="#cccccc" count="16"/>
-    <stitch color="#29292b" count="2"/>
-  </stitches>
-</tartan>

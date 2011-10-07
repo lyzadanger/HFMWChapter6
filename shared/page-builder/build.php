@@ -51,7 +51,7 @@ if (is_dir($dir)) {
         $fp = fopen(TARTAN_PAGE_DIR . 'tartans.css', 'w+');
         if ($fp) {
           // egregious bit o'hackery here
-          fwrite($fp, '[data-role="footer"] { text-align: center; padding: 5px 0;}');
+          fwrite($fp, ' .forrit { padding: .25em; text-align:center;}');
           // OK, that's over
           fwrite($fp, $css);
           fclose($fp);
