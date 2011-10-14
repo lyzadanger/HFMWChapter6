@@ -7,10 +7,8 @@
     jQuery.ajaxSettings.traditional = true;
     // Only show one set of inputs. 
     // We'll dynamically handle everything else with the "add color" button
-    $('.color-input:not(:first), .size-input:not(:first)').remove();
-    $('#add-color-container').show();
-    $('#addcolor').click(onAddColor);
-
+    $('.colorset:not(:first)').remove();
+    buildAddButton();
   });
 
   // pageinit fires after jQuery Mobile DOM elements are ready to go
@@ -31,6 +29,23 @@
     $colorInputUI.change(setColorSelectStyle);
     $('#tartanator_form').submit(onFormSubmit);
   }
+  
+  // Create and add the add-color button to the DOM
+  function buildAddButton() {
+    var li = $('<li></li>').attr({
+      'data-role'     : 'fieldcontain',
+      'id'            : 'add-color-container'
+    });
+    var button = $('<input type="button">').attr({
+      name        : 'addcolor',
+      'data-role' : 'button',
+      value       : 'Add This Color',
+      'data-icon' : 'plus'
+    });
+    button.click(onAddColor);
+    $(li).append(button);
+    $('#tartanator_form_list').append(li);
+  }
 
   // User clicks the "add color" button
   function onAddColor (evt) {
@@ -39,8 +54,6 @@
         name   = select.find(':selected').text(),
         hex    = select.val(),
         size   = form.find('.size-input input').val();
-    console.log('hex ' + hex);
-    console.log('size ' + size);
     if (hex && size) {
       addColor(name, size, hex);
       onColorListChange();
@@ -55,6 +68,7 @@
   };
 
   // Upate the DOM with the new color
+  // Create and add hidden fields to contain values for the form
   function addColor (colorName, colorSize, colorValue) {
     var colorItem = [
       '<li data-role="button" data-icon="delete" style="background:', colorValue,
@@ -62,7 +76,7 @@
       '">', colorName, ' (', colorSize + ')',
       '<input type="hidden" name="colors[]" value="', colorValue, '">',
       '<input type="hidden" name="sizes[]" value="', colorSize, '">',
-      '<a data-role="button" data-icon="delete"></a>',
+      '<a data-role="button"></a>',
       '</li>'].join('');
     $colorList.append(colorItem);
     $colorInputUI.find('select').val('').selectmenu('refresh');
@@ -75,7 +89,6 @@
   function onColorListChange (deleteClickEvent) {
     var $li;
     if (deleteClickEvent) $li = $(deleteClickEvent.target).closest('li').remove();
-
     $submitFormBtn[$colorList.find('li').length ? 'show' : 'hide']();
     $colorList.listview('refresh'); 
     setColorSelectStyle();
@@ -107,7 +120,6 @@
     return true;
   };
 
-
   // Set the background color of the select widget to match the color value
   function setColorSelectStyle() {
     var backgroundHex = $colorInputUI.find('select').val();
@@ -136,6 +148,4 @@
   $(function () {
     $('[data-role="page"]').trigger('pageinit');
   });
-
-
 }());

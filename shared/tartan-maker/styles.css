@@ -11,9 +11,7 @@
 #colorlist li .ui-li {
   border-top: 0;
 }
-#add-color-container {
-  display: none;
-}
+
 .placeholder {
   color: #999;
 }

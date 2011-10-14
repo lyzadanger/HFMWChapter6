@@ -182,15 +182,24 @@ class LyzaTartan {
   }
   
   /**
-   * Generate a PNG from the current weave.
+   * Build a PNG image and return it.
+   *
+   * @param int $width      Desired approximate pixel width
+   * @return Image resource 
    */
-  public function image($save=FALSE, $display=TRUE, $save_to=NULL) {
+  public function buildImage($width=NULL) {
+    // TODO: Check to see if image file already exists
+    if ($width) {
+      $this->set_dynamic_scale($width);
+    }
     if (!$this->ready) {
       $this->init();
     }
+    // Create an image resource
     $im = imagecreate($this->width, $this->height);
+    // The first allocated color will define the background color
     $black = imagecolorallocate($im, 0,0,0);
-    $colors = array();
+    $colors = array();  // An array to hold allocated colors
     for($x = 0; $x < $this->width; $x++) {
       for ($y = 0; $y < $this->height; $y++) {
         $rgb = $this->weave[$x][$y];
@@ -201,6 +210,31 @@ class LyzaTartan {
         $ok = imagesetpixel($im, $x, $y, $colors["color_" . $rgb]);
       }
     }
+    return $im;
+  }
+  
+  /**
+   * Build and deliver an image to the browser. Outputs!
+   *
+   * @param int $width    Approximate desired pixel width
+   * @return NULL
+   */
+  public function showImage($width=NULL) {
+    $im = $this->buildImage($width);
+    header('Content-Type: image/png');
+    imagepng($im);    
+  }
+  
+  public function saveImage($width=NULL) {
+    $im = $this->buildImage($width);
+    // Filename: filepath + NEED TO DETERMINE NAME + whatever
+  }
+  
+  /**
+   * Generate a PNG from the current weave.
+   */
+  public function image($save=FALSE, $display=TRUE, $save_to=NULL) {
+    $im = $this->buildImage();
     if ($save) {
       // Why yes, as written, this WOULD overwrite another tartan with 
       // the same name. 
@@ -249,8 +283,21 @@ class LyzaTartan {
     }
     return $rgbArray;
   }
+  
+  public static function toFilename($name) {
+    
+  }
+  
+  public static function fromFilename($name) {
+  
+  }
+  
+  public static function fromURLName($name) {
+  
+  }
 
   public static function sanitize($string = '', $is_filename = FALSE) {
+    $string = urldecode(stripslashes($string));
     $string = preg_replace('/[^\w\-'. ($is_filename ? '~_\.' : ''). ']+/u', '-', $string);
     return mb_strtolower(preg_replace('/--+/u', '-', $string), 'UTF-8');
   }
@@ -279,7 +326,7 @@ class LyzaTartan {
       $stitch->addAttribute('count', $settlet['count']);
     }
     $tartan_xml = $tartan->asXML();
-    // Use a DOMDocument to format the XML so it isn't all one line
+    // Use a DOMDocument to format the XML
     $dom = new DOMDocument('1.0');
     $dom->preserveWhiteSpace = false;
     $dom->formatOutput = true; 

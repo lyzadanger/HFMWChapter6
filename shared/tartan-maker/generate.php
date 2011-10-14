@@ -2,10 +2,10 @@
 require('config.php');
 require('tartan.inc');
 
-$name = $_POST['name'];
-$width = 300;
+$width = 280;
 $stripe = 2;
 $sett = array();
+
 for($i=0; $i < sizeof($_POST['colors']); $i++) {
   // check for submitted blank values
   if ($_POST['colors'][$i] && $_POST['sizes'][$i]) {
@@ -13,11 +13,11 @@ for($i=0; $i < sizeof($_POST['colors']); $i++) {
                     'count' => $_POST['sizes'][$i]);
   }
 }
+$name = stripslashes($_POST['name']);
 $tartan = new LyzaTartan($name, $sett, 1);
 $tartan->set_dynamic_scale($width);
 $tartan->set_stripe_size($stripe);
 if (isset($_POST['tartan_info'])) {
-  // NOTE! This isn't sanitized!
   $tartan->set_description(strip_tags(stripslashes($_POST['tartan_info']), '<a><p><strong><em><br><ul><li><ol><h1><h2><h3><h4><h5><h6>'));
 }
 

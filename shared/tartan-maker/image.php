@@ -9,5 +9,5 @@ if ($_GET['name']) {
   if (isset($_GET['width'])) {
     $tartan->set_dynamic_scale($_GET['width']);
   }
-  $tartan->image(TRUE);
+  $tartan->showImage();
 }
