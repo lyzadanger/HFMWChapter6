@@ -2,3 +2,5 @@ scratch/*
 .DS_Store
 chapter6
 config.php
+shared/tartan-maker
+shared/page-builder
