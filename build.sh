@@ -9,5 +9,6 @@ mkdir -p tartans
 cp -LR ../shared/tartanator-pages/tartans/ tartans
 mkdir -p extras
 cp ../shared/tartanator-pages/color-list.txt extras
+cp ../03_more_lists/01_basic_tartan_list/tartans.html extras
 cd ..
 zip -qr chapter6.zip chapter6
